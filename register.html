@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* --- MOUNT KINABALU BACKGROUND --- */
+    .bg-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('uploads/photos/Mount Kinabalu.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      filter: brightness(0.4) contrast(1.1);
+    }
+
+    /* --- NEW BACK BUTTON CSS --- */
+    .register-container {
+      flex: 1;
+      padding: 40px 20px;
+      position: relative;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-container {
+      flex: 1;
+      padding: 40px 20px;
+      background: radial-gradient(circle, rgba(138, 21, 56, 0.15) 0%, transparent 70%);
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-container {
+      flex: 1;
+      padding: 40px 20px;
+      position: relative;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-container {
+      flex: 1;
+      padding: 40px 20px;
+      position: relative;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-container {
+      flex: 1;
+      padding: 40px 20px;
+      position: relative;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Animated Background Circles */
+    .register-container::before,
+    .register-container::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(138, 21, 56, 0.08), rgba(201, 31, 77, 0.04));
+      animation: float 25s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .register-container::before {
+      width: 500px;
+      height: 500px;
+      top: -150px;
+      right: -150px;
+      animation-delay: 0s;
+    }
+
+    .register-container::after {
+      width: 400px;
+      height: 400px;
+      bottom: -100px;
+      left: -100px;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(40px, -40px) rotate(120deg); }
+      66% { transform: translate(-30px, 30px) rotate(240deg); }
+    }
+
+    /* Registration Card */
+    .register-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      max-width: 700px;
+      margin: 20px auto;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card Header */
+    .card-header {
+      background: linear-gradient(135deg, #8a1538 0%, #c91f4d 100%);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: 80px 80px;
+      opacity: 0.3;
+    }
+
+    .logo-section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-circle {
+      width: 70px;
+      height: 70px;
+      background: white;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo-circle img {
+      width: 200px;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .welcome-text {
+      font-size: 15px;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    /* Card Body */
+    .card-body {
+      padding: 40px 35px;
+    }
+
+    .form-title {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .form-subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    /* Form Sections */
+    .form-section {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f5f5f5;
+    }
+
+    .section-icon {
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      color: #8a1538;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-label {
+      display: block;
+      color: #555;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .required {
+      color: #e74c3c;
+      margin-left: 3px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 15px 14px 45px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: 'Poppins', Arial, sans-serif;
+      transition: all 0.3s;
+      background: white;
+    }
+
+    .form-input.no-icon,
+    .form-select.no-icon,
+    .form-textarea.no-icon {
+      padding-left: 15px;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 90px;
+      padding-top: 12px;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #8a1538;
+      box-shadow: 0 0 0 4px rgba(138, 21, 56, 0.1);
+    }
+
+    .form-input:focus + .input-icon {
+      opacity: 1;
+    }
+
+    .form-hint {
+      display: block;
+      color: #999;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    /* Password Strength */
+    .password-strength {
+      height: 5px;
+      background: #f0f0f0;
+      border-radius: 3px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .password-strength-bar {
+      height: 100%;
+      width: 0%;
+      transition: all 0.3s ease;
+      border-radius: 3px;
+    }
+
+    .password-strength-bar.weak { 
+      width: 33%; 
+      background: linear-gradient(90deg, #e74c3c, #c0392b);
+    }
+    .password-strength-bar.medium { 
+      width: 66%; 
+      background: linear-gradient(90deg, #f39c12, #e67e22);
+    }
+    .password-strength-bar.strong { 
+      width: 100%; 
+      background: linear-gradient(90deg, #27ae60, #229954);
+    }
+
+    .strength-text {
+      display: block;
+      font-size: 12px;
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    /* Password Toggle */
+    .password-toggle {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      user-select: none;
+      opacity: 0.6;
+      transition: all 0.3s;
+    }
+
+    .password-toggle:hover {
+      opacity: 1;
+    }
+
+    /* Radio Group */
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #8a1538;
+    }
+
+    .radio-option label {
+      cursor: pointer;
+      font-size: 14px;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    /* File Upload */
+    .file-upload {
+      border: 2px dashed #d0d0d0;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: #fafafa;
+    }
+
+    .file-upload:hover {
+      border-color: #8a1538;
+      background: white;
+      transform: scale(1.02);
+    }
+
+    .file-upload input[type="file"] {
+      display: none;
+    }
+
+    .file-upload-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      opacity: 0.6;
+    }
+
+    .file-upload-text {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .file-name {
+      font-size: 13px;
+      color: #27ae60;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    /* Checkbox */
+    .checkbox-group {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #8a1538;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .checkbox-group label {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      cursor: pointer;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .checkbox-group a {
+      color: #8a1538;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .checkbox-group a:hover {
+      text-decoration: underline;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #8a1538 0%, #c91f4d 100%);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(138, 21, 56, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(138, 21, 56, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Login Link */
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #8a1538;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .login-link a:hover {
+      color: #c91f4d;
+      text-decoration: underline;
+    }
+
+    /* Progress Steps */
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .progress-steps::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: 0;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #e0e0e0;
+      margin: 0 auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      color: #999;
+      transition: all 0.3s;
+    }
+
+    .step.active .step-circle {
+      background: linear-gradient(135deg, #8a1538 0%, #c91f4d 100%);
+      border-color: #8a1538;
+      color: white;
+    }
+
+    .step-label {
+      font-size: 11px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    .step.active .step-label {
+      color: #8a1538;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .register-container {
+        padding: 20px 15px;
+      }
+
+      .register-card {
+        border-radius: 20px;
+      }
+
+      .card-header {
+        padding: 30px 20px;
+      }
+
+      .card-body {
+        padding: 30px 25px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .radio-group {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .progress-steps {
+        display: none; /* Hide on mobile for simplicity */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 24px;
+      }
+
+      .form-title {
+        font-size: 20px;
+      }
+
+      .section-title {
+        font-size: 16px;
+      }
+    }
+
+    /* Loading Animation */
+    .submit-btn.loading {
+      pointer-events: none;
+      opacity: 0.7;
+      position: relative;
+    }
+
+    .submit-btn.loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hidden sections */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Student Badge */
+    .student-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* ============================================
+       SUCCESS/ERROR MESSAGE BOX STYLES
+       ============================================ */
+    .message-box {
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message-box.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 2px solid #c3e6cb;
+    }
+
+    .message-box.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 2px solid #f5c6cb;
+    }
+
+    .message-box.info {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      border: 2px solid #bee5eb;
+    }
+
+    .message-box.show {
+      display: flex;
+    }
+
+    .message-icon {
+      font-size: 24px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .message-text {
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Mount Kinabalu Background -->
+  <div class="bg-fixed"></div>
+
+  <!-- Header -->
+  <header class="pw-header" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+    <div class="pw-nav-container">
+      <a href="index.php" class="pw-logo">
+        <img src="assets/images/logo.png" alt="POP!Work Logo" height="40">
+        <span class="logo-text">POP!Work</span>
+      </a>
+
+      <nav class="pw-nav">
+        <a href="index.php" class="pw-link">Home</a>
+        <a href="jobs.php" class="pw-link">Find Jobs</a>
+        <a href="about.php" class="pw-link">About Us</a>
+      </nav>
+
+      <div class="pw-auth">
+        <a href="login.html" class="pw-btn pw-login">Login</a>
+      </div>
+
+      <div class="pw-mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="register-container">
+    <div class="register-card">
+      <!-- Card Header -->
+      <div class="card-header">
+        <div class="logo-section">
+          <div class="logo-circle">
+            <img src="assets/images/logo.png" alt="POP!Work Logo">
+          </div>
+          <div class="logo-text">POP!Work</div>
+          <div class="welcome-text">Join our community today!</div>
+        </div>
+      </div>
+
+      <!-- Card Body -->
+      <div class="card-body">
+        <h2 class="form-title">Create Your Account</h2>
+        <p class="form-subtitle">Fill in your details to get started</p>
+
+        <form id="registerForm" method="POST" enctype="multipart/form-data">
+          
+          <!-- Account Information -->
+          <div class="form-section">
+            <div class="section-header">
+              <span class="section-icon">🔐</span>
+              <h3 class="section-title">Account Information</h3>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <input 
+                  type="email" 
+                  id="email"
+                  name="email" 
+                  class="form-input" 
+                  placeholder="your.email@example.com"
+                  required
+                  autocomplete="email"
+                >
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#8a1538" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="password">Password <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <input 
+                    type="password" 
+                    id="password"
+                    name="password" 
+                    class="form-input" 
+                    placeholder="Create strong password"
+                    required
+                    minlength="8"
+                    autocomplete="new-password"
+                  >
+                  <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#8a1538" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+                </div>
+                <div class="password-strength">
+                  <div class="password-strength-bar" id="strengthBar"></div>
+                </div>
+                <span class="strength-text" id="strengthText">Must be at least 8 characters</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="confirm_password">Confirm Password <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <input 
+                    type="password" 
+                    id="confirm_password"
+                    name="confirm_password" 
+                    class="form-input" 
+                    placeholder="Re-enter password"
+                    required
+                    autocomplete="new-password"
+                  >
+                  <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#8a1538" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span class="password-toggle" onclick="togglePassword('confirm_password')">👁️</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="role">I am a <span class="required">*</span></label>
+              <select name="role" id="role" class="form-select no-icon" required>
+                <option value="">-- Select Your Role --</option>
+                <option value="worker">Job Seeker / Worker</option>
+                <option value="employer">Employer / Recruiter</option>
+
+              </select>
+            </div>
+          </div>
+
+          <!-- Personal Information -->
+          <div class="form-section">
+            <div class="section-header">
+              <span class="section-icon">👤</span>
+              <h3 class="section-title">Personal Information</h3>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="first_name">First Name <span class="required">*</span></label>
+                <input 
+                  type="text" 
+                  id="first_name"
+                  name="first_name" 
+                  class="form-input no-icon" 
+                  placeholder="John"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="last_name">Last Name <span class="required">*</span></label>
+                <input 
+                  type="text" 
+                  id="last_name"
+                  name="last_name" 
+                  class="form-input no-icon" 
+                  placeholder="Doe"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <input 
+                  type="tel" 
+                  id="phone"
+                  name="phone" 
+                  class="form-input" 
+                  placeholder="010-1234567"
+                  pattern="[0-9]{3}-[0-9]{7,8}"
+                  required
+                >
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#8a1538" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <span class="form-hint">Format: 010-1234567</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="date_of_birth">Date of Birth</label>
+                <input 
+                  type="date" 
+                  id="date_of_birth"
+                  name="date_of_birth" 
+                  class="form-input no-icon" 
+                  max="2010-12-31"
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Gender</label>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location Information -->
+          <div class="form-section">
+            <div class="section-header">
+              <span class="section-icon">📍</span>
+              <h3 class="section-title">Location Details</h3>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="district">District <span class="required">*</span></label>
+              <select name="district" id="district" class="form-select no-icon" required>
+                <option value="">-- Select Your District --</option>
+                <option value="Beaufort">Beaufort</option>
+                <option value="Beluran">Beluran</option>
+                <option value="Keningau">Keningau</option>
+                <option value="Kinabatangan">Kinabatangan</option>
+                <option value="Kota Belud">Kota Belud</option>
+                <option value="Kota Kinabalu">Kota Kinabalu</option>
+                <option value="Kota Marudu">Kota Marudu</option>
+                <option value="Kuala Penyu">Kuala Penyu</option>
+                <option value="Kudat">Kudat</option>
+                <option value="Kunak">Kunak</option>
+                <option value="Lahad Datu">Lahad Datu</option>
+                <option value="Nabawan">Nabawan</option>
+                <option value="Papar">Papar</option>
+                <option value="Penampang">Penampang</option>
+                <option value="Pitas">Pitas</option>
+                <option value="Ranau">Ranau</option>
+                <option value="Sandakan">Sandakan</option>
+                <option value="Semporna">Semporna</option>
+                <option value="Sipitang">Sipitang</option>
+                <option value="Tambunan">Tambunan</option>
+                <option value="Tamparuli">Tamparuli</option>
+                <option value="Tawau">Tawau</option>
+                <option value="Telupid">Telupid</option>
+                <option value="Tenom">Tenom</option>
+                <option value="Tongod">Tongod</option>
+                <option value="Tuaran">Tuaran</option>
+                <option value="Putatan">Putatan</option>
+                <option value="Kalabakan">Kalabakan</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="address">Full Address</label>
+              <textarea 
+                id="address"
+                name="address" 
+                class="form-textarea no-icon" 
+                placeholder="Enter your full address"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Worker-Specific Information -->
+          <div class="form-section hidden" id="workerSection">
+            <div class="section-header">
+              <span class="section-icon">💼</span>
+              <h3 class="section-title">Professional Information</h3>
+            </div>
+
+            <!-- Student Status -->
+            <div class="form-group">
+              <div class="checkbox-group" style="background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                <input type="checkbox" id="is_student" name="is_student" onchange="toggleUniversityField()">
+                <label for="is_student">
+                  🎓 I am currently a university/college student
+                </label>
+              </div>
+            </div>
+
+            <!-- University Field (Hidden by default) -->
+            <div class="form-group hidden" id="universityField">
+              <label class="form-label" for="university">University/College <span class="required">*</span></label>
+              <select name="university" id="university" class="form-select no-icon">
+                <option value="">-- Select Your University --</option>
+                <optgroup label="🏛️ Universities in Sabah">
+                  <option value="Universiti Malaysia Sabah (UMS)">Universiti Malaysia Sabah (UMS)</option>
+                  <option value="UiTM Sabah">Universiti Teknologi MARA (UiTM) Sabah</option>
+                  <option value="UMS Labuan">UMS Labuan International Campus</option>
+                  <option value="Politeknik Kota Kinabalu">Politeknik Kota Kinabalu</option>
+                  <option value="Politeknik Sandakan">Politeknik Sandakan</option>
+                  <option value="Kolej Komuniti Kota Kinabalu">Kolej Komuniti Kota Kinabalu</option>
+                  <option value="Kolej Komuniti Tawau">Kolej Komuniti Tawau</option>
+                  <option value="Kolej Yayasan Sabah">Kolej Yayasan Sabah</option>
+                  <option value="INTI International College Sabah">INTI International College Sabah</option>
+                  <option value="Kolej Universiti Islam Sabah">Kolej Universiti Islam Sabah</option>
+                </optgroup>
+                <optgroup label="🇲🇾 Other Malaysian Universities">
+                  <option value="Universiti Malaya (UM)">Universiti Malaya (UM)</option>
+                  <option value="Universiti Kebangsaan Malaysia (UKM)">Universiti Kebangsaan Malaysia (UKM)</option>
+                  <option value="Universiti Putra Malaysia (UPM)">Universiti Putra Malaysia (UPM)</option>
+                  <option value="Universiti Sains Malaysia (USM)">Universiti Sains Malaysia (USM)</option>
+                  <option value="Universiti Teknologi Malaysia (UTM)">Universiti Teknologi Malaysia (UTM)</option>
+                  <option value="Universiti Utara Malaysia (UUM)">Universiti Utara Malaysia (UUM)</option>
+                  <option value="Universiti Pendidikan Sultan Idris (UPSI)">Universiti Pendidikan Sultan Idris (UPSI)</option>
+                  <option value="Universiti Teknologi MARA (UiTM)">Universiti Teknologi MARA (UiTM)</option>
+                  <option value="Universiti Islam Antarabangsa Malaysia (UIAM)">Universiti Islam Antarabangsa Malaysia (UIAM)</option>
+                  <option value="Universiti Malaysia Sarawak (UNIMAS)">Universiti Malaysia Sarawak (UNIMAS)</option>
+                  <option value="Universiti Malaysia Pahang (UMP)">Universiti Malaysia Pahang (UMP)</option>
+                  <option value="Universiti Teknikal Malaysia Melaka (UTeM)">Universiti Teknikal Malaysia Melaka (UTeM)</option>
+                  <option value="Universiti Tun Hussein Onn Malaysia (UTHM)">Universiti Tun Hussein Onn Malaysia (UTHM)</option>
+                  <option value="Universiti Malaysia Perlis (UniMAP)">Universiti Malaysia Perlis (UniMAP)</option>
+                  <option value="Universiti Malaysia Terengganu (UMT)">Universiti Malaysia Terengganu (UMT)</option>
+                  <option value="Universiti Malaysia Kelantan (UMK)">Universiti Malaysia Kelantan (UMK)</option>
+                  <option value="Universiti Pertahanan Nasional Malaysia (UPNM)">Universiti Pertahanan Nasional Malaysia (UPNM)</option>
+                  <option value="Universiti Sains Islam Malaysia (USIM)">Universiti Sains Islam Malaysia (USIM)</option>
+                  <option value="Universiti Sultan Zainal Abidin (UniSZA)">Universiti Sultan Zainal Abidin (UniSZA)</option>
+                </optgroup>
+                <optgroup label="🏫 Private Universities">
+                  <option value="Taylor's University">Taylor's University</option>
+                  <option value="Sunway University">Sunway University</option>
+                  <option value="Monash University Malaysia">Monash University Malaysia</option>
+                  <option value="University of Nottingham Malaysia">University of Nottingham Malaysia</option>
+                  <option value="Heriot-Watt University Malaysia">Heriot-Watt University Malaysia</option>
+                  <option value="Curtin University Malaysia">Curtin University Malaysia</option>
+                  <option value="Swinburne University of Technology Sarawak">Swinburne University Sarawak</option>
+                  <option value="UCSI University">UCSI University</option>
+                  <option value="Asia Pacific University (APU)">Asia Pacific University (APU)</option>
+                  <option value="Management and Science University (MSU)">Management and Science University (MSU)</option>
+                  <option value="Multimedia University (MMU)">Multimedia University (MMU)</option>
+                  <option value="HELP University">HELP University</option>
+                  <option value="INTI International University">INTI International University</option>
+                  <option value="Nilai University">Nilai University</option>
+                  <option value="SEGi University">SEGi University</option>
+                  <option value="Binary University">Binary University</option>
+                  <option value="Limkokwing University">Limkokwing University</option>
+                </optgroup>
+                <optgroup label="📚 Colleges & Institutes">
+                  <option value="Other College/Institute">Other College/Institute</option>
+                </optgroup>
+              </select>
+              <span class="form-hint">This helps employers identify students for flexible work opportunities</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="skills">Skills & Expertise</label>
+              <textarea 
+                id="skills"
+                name="skills" 
+                class="form-textarea no-icon" 
+                placeholder="e.g., Customer Service, Food Handling, Event Management"
+              ></textarea>
+              <span class="form-hint">Separate skills with commas</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="experience">Work Experience</label>
+              <select name="experience" id="experience" class="form-select no-icon">
+                <option value="">-- Select Experience Level --</option>
+                <option value="entry">Entry Level (0-1 years)</option>
+                <option value="junior">Junior (1-3 years)</option>
+                <option value="intermediate">Intermediate (3-5 years)</option>
+                <option value="senior">Senior (5+ years)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="resume">Upload Resume (Optional)</label>
+              <div class="file-upload" onclick="document.getElementById('resume').click()">
+                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" onchange="displayFileName('resume', 'resumeFileName')">
+                <div class="file-upload-icon">📄</div>
+                <div class="file-upload-text">Click to upload resume</div>
+                <div class="form-hint">PDF, DOC, DOCX (Max 5MB)</div>
+                <div class="file-name" id="resumeFileName"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Employer-Specific Information -->
+          <div class="form-section hidden" id="employerSection">
+            <div class="section-header">
+              <span class="section-icon">🏢</span>
+              <h3 class="section-title">Company Information</h3>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="company_name">Company Name <span class="required">*</span></label>
+              <input 
+                type="text" 
+                id="company_name"
+                name="company_name" 
+                class="form-input no-icon" 
+                placeholder="Your Company Name"
+              >
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="company_industry">Industry</label>
+                <select name="company_industry" id="company_industry" class="form-select no-icon">
+                  <option value="">-- Select Industry --</option>
+                  <option value="hospitality">Hospitality & Tourism</option>
+                  <option value="retail">Retail & Sales</option>
+                  <option value="food">Food & Beverage</option>
+                  <option value="construction">Construction</option>
+                  <option value="events">Events & Entertainment</option>
+                  <option value="logistics">Logistics & Transportation</option>
+                  <option value="agriculture">Agriculture</option>
+                  <option value="technology">Technology & IT</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="company_size">Company Size</label>
+                <select name="company_size" id="company_size" class="form-select no-icon">
+                  <option value="">-- Select Size --</option>
+                  <option value="1-10">1-10 employees</option>
+                  <option value="11-50">11-50 employees</option>
+                  <option value="51-200">51-200 employees</option>
+                  <option value="201-500">201-500 employees</option>
+                  <option value="500+">500+ employees</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="company_description">Company Description</label>
+              <textarea 
+                id="company_description"
+                name="company_description" 
+                class="form-textarea no-icon" 
+                placeholder="Brief description of your company"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Profile Photo -->
+          <div class="form-section">
+            <div class="section-header">
+              <span class="section-icon">📷</span>
+              <h3 class="section-title">Profile Photo</h3>
+            </div>
+
+            <div class="form-group">
+              <div class="file-upload" onclick="document.getElementById('photo').click()">
+                <input type="file" id="photo" name="photo" accept="image/*" onchange="displayFileName('photo', 'photoFileName')">
+                <div class="file-upload-icon">📷</div>
+                <div class="file-upload-text">Click to upload profile picture</div>
+                <div class="form-hint">Square image, at least 200x200px (Max 2MB)</div>
+                <div class="file-name" id="photoFileName"></div>
+              </div>
+            </div>
+          </div>
+
+          <!--  and Conditions -->
+          <div class="checkbox-group">
+            <input type="checkbox" id="" name="terms" required>
+            <label for="terms">
+              I agree to the <a href="#" target="_blank">Terms of Service</a> and 
+              <a href="#" target="_blank">Privacy Policy</a> <span class="required">*</span>
+            </label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">
+              Send me job alerts and promotional emails from POP!Work
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Create Account</button>
+
+          <div class="login-link">
+            Already have an account? <a href="login.html">Sign In</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 POP!Work | Designed by NUR RASHIDAH BINTI ALIAS</p>
+  </footer>
+
+  <script>
+    // Password visibility toggle
+    function togglePassword(inputId) {
+      const input = document.getElementById(inputId);
+      const toggle = input.parentElement.querySelector('.password-toggle');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        toggle.textContent = '🙈';
+      } else {
+        input.type = 'password';
+        toggle.textContent = '👁️';
+      }
+    }
+
+    // Password strength indicator
+    const passwordInput = document.getElementById('password');
+    const strengthBar = document.getElementById('strengthBar');
+    const strengthText = document.getElementById('strengthText');
+
+    passwordInput.addEventListener('input', function() {
+      const password = this.value;
+      let strength = 0;
+
+      if (password.length >= 8) strength++;
+      if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+      if (password.match(/[0-9]/)) strength++;
+      if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+      strengthBar.className = 'password-strength-bar';
+      
+      if (strength === 0 || strength === 1) {
+        strengthBar.classList.add('weak');
+        strengthText.textContent = 'Weak password';
+        strengthText.style.color = '#e74c3c';
+      } else if (strength === 2 || strength === 3) {
+        strengthBar.classList.add('medium');
+        strengthText.textContent = 'Medium strength';
+        strengthText.style.color = '#f39c12';
+      } else {
+        strengthBar.classList.add('strong');
+        strengthText.textContent = 'Strong password ✓';
+        strengthText.style.color = '#27ae60';
+      }
+    });
+
+    // Password confirmation validation
+    const confirmPassword = document.getElementById('confirm_password');
+    confirmPassword.addEventListener('input', function() {
+      if (this.value !== passwordInput.value) {
+        this.setCustomValidity('Passwords do not match');
+      } else {
+        this.setCustomValidity('');
+      }
+    });
+
+    // Role-based section display
+    const roleSelect = document.getElementById('role');
+    const workerSection = document.getElementById('workerSection');
+    const employerSection = document.getElementById('employerSection');
+    const companyNameInput = document.getElementById('company_name');
+
+    roleSelect.addEventListener('change', function() {
+      if (this.value === 'worker') {
+        workerSection.classList.remove('hidden');
+        employerSection.classList.add('hidden');
+        companyNameInput.removeAttribute('required');
+      } else if (this.value === 'employer') {
+        workerSection.classList.add('hidden');
+        employerSection.classList.remove('hidden');
+        companyNameInput.setAttribute('required', 'required');
+      } else {
+        workerSection.classList.add('hidden');
+        employerSection.classList.add('hidden');
+        companyNameInput.removeAttribute('required');
+      }
+    });
+
+    // Toggle university field based on student checkbox
+    function toggleUniversityField() {
+      const isStudent = document.getElementById('is_student').checked;
+      const universityField = document.getElementById('universityField');
+      const universitySelect = document.getElementById('university');
+      
+      if (isStudent) {
+        universityField.classList.remove('hidden');
+        universitySelect.setAttribute('required', 'required');
+      } else {
+        universityField.classList.add('hidden');
+        universitySelect.removeAttribute('required');
+        universitySelect.value = '';
+      }
+    }
+
+    // File name display function
+    function displayFileName(inputId, displayId) {
+      const input = document.getElementById(inputId);
+      const display = document.getElementById(displayId);
+      
+      if (input.files && input.files[0]) {
+        display.textContent = '✓ ' + input.files[0].name;
+      } else {
+        display.textContent = '';
+      }
+    }
+
+    // Form validation before submit
+    const form = document.getElementById('registerForm');
+    form.addEventListener('submit', function(e) {
+      // Check if passwords match
+      if (passwordInput.value !== confirmPassword.value) {
+        e.preventDefault();
+        alert('Passwords do not match!');
+        confirmPassword.focus();
+        return false;
+      }
+
+      // Check if terms are accepted
+      const termsCheckbox = document.getElementById('terms');
+      if (!termsCheckbox.checked) {
+        e.preventDefault();
+        alert('Please accept the Terms of Service and Privacy Policy');
+        termsCheckbox.focus();
+        return false;
+      }
+
+      // Validate file sizes
+      const resumeInput = document.getElementById('resume');
+      if (resumeInput.files[0]) {
+        const resumeSize = resumeInput.files[0].size / 1024 / 1024; // MB
+        if (resumeSize > 20) {
+          e.preventDefault();
+          alert('Resume file size must be less than 5MB');
+          return false;
+        }
+      }
+
+      const photoInput = document.getElementById('photo');
+      if (photoInput.files[0]) {
+        const photoSize = photoInput.files[0].size / 1024 / 1024; // MB
+        if (photoSize > 10) {
+          e.preventDefault();
+          alert('Photo file size must be less than 2MB');
+          return false;
+        }
+      }
+
+      // Add loading state to button
+      const submitBtn = this.querySelector('.submit-btn');
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = '';
+
+      return true;
+    });
+
+    // Prevent multiple form submissions
+    let formSubmitted = false;
+    form.addEventListener('submit', function(e) {
+      if (formSubmitted) {
+        e.preventDefault();
+        return false;
+      }
+      formSubmitted = true;
+    });
+  </script>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.pw-mobile-toggle');
+    const nav = document.querySelector('.pw-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        toggle.classList.toggle('active');
+      });
+    }
+  </script>
+  <script src="register.js"></script>
+
+</body>
+</html>
