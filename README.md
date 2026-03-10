@@ -44,25 +44,6 @@ Additional Tools
 
 ---
 
-## System Architecture
-
-See the system architecture diagram inside the `/docs` folder.
-
----
-
-## Screenshots
-
-### Homepage
-![Homepage](docs/screenshots/homepage.png)
-
-### Job Listing
-![Jobs](docs/screenshots/job-listing.png)
-
-### Dashboard
-![Dashboard](docs/screenshots/dashboard.png)
-
----
-
 ## Usability Testing
 
 The system achieved a **System Usability Scale (SUS) score of 86.875**, categorized as **Excellent usability**, based on evaluation from 30 participants.
