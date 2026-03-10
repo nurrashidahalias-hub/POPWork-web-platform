@@ -1,0 +1,382 @@
+/* ================================
+   POP!Work Header Navigation
+   Modern & Clean Design
+================================ */
+
+/* Header Container */
+.pw-header {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.pw-header.shrink {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Navigation Container */
+.pw-nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Logo Section */
+.pw-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pw-logo:hover {
+    transform: translateY(-2px);
+}
+
+.pw-logo img {
+    height: 50px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.logo-text {
+    font-size: 26px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #8a1538 0%, #c91f4d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+/* Navigation Links */
+.pw-nav {
+    display: flex;
+    gap: 35px;
+    flex: 1;
+    justify-content: center;
+}
+
+.pw-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+}
+
+.pw-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #8a1538 0%, #c91f4d 100%);
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.pw-link:hover::after,
+.pw-link.active::after {
+    width: 100%;
+}
+
+.pw-link:hover {
+    color: #8a1538;
+}
+
+/* Auth Buttons Container */
+.pw-auth {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Button Styles */
+.pw-btn {
+    padding: 12px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Login Button */
+.pw-login {
+    color: #8a1538;
+    border-color: #8a1538;
+    background: transparent;
+}
+
+.pw-login:hover {
+    background: #8a1538;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(138, 21, 56, 0.3);
+}
+
+/* Register Button */
+.pw-register {
+    background: linear-gradient(135deg, #8a1538 0%, #c91f4d 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(138, 21, 56, 0.3);
+}
+
+.pw-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 21, 56, 0.4);
+}
+
+/* Profile Button (Icon) */
+.pw-profile-btn {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8a1538 0%, #c91f4d 100%);
+    color: white;
+    font-size: 18px;
+}
+
+.pw-profile-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(138, 21, 56, 0.4);
+}
+
+/* Logout Button (Icon) */
+.pw-logout {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #8a1538;
+    border: 2px solid #8a1538;
+    font-size: 18px;
+}
+
+.pw-logout:hover {
+    background: #8a1538;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(138, 21, 56, 0.3);
+}
+
+/* Mobile Menu Toggle */
+.pw-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.pw-mobile-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #8a1538;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.pw-mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.pw-mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.pw-mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Messages Link with Badge */
+.pw-messages-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pw-message-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #e74c3c;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Tablets and Below */
+@media (max-width: 1024px) {
+    .pw-nav-container {
+        padding: 18px 30px;
+        gap: 25px;
+    }
+
+    .pw-nav {
+        gap: 25px;
+    }
+
+    .pw-link {
+        font-size: 14px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .pw-nav-container {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+
+    .pw-logo img {
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 22px;
+    }
+
+    .pw-mobile-toggle {
+        display: flex;
+        order: 3;
+    }
+
+    .pw-nav {
+        display: none;
+        width: 100%;
+        order: 4;
+        flex-direction: column;
+        gap: 0;
+        background: white;
+        padding: 20px 0;
+        border-top: 1px solid #e5e5e5;
+        margin-top: 15px;
+    }
+
+    .pw-nav.active {
+        display: flex;
+    }
+
+    .pw-link {
+        padding: 12px 20px;
+        width: 100%;
+        border-left: 3px solid transparent;
+    }
+
+    .pw-link::after {
+        display: none;
+    }
+
+    .pw-link:hover,
+    .pw-link.active {
+        border-left-color: #8a1538;
+        background: rgba(138, 21, 56, 0.05);
+    }
+
+    .pw-auth {
+        gap: 10px;
+    }
+
+    .pw-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .pw-profile-btn,
+    .pw-logout {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .pw-nav-container {
+        padding: 12px 15px;
+    }
+
+    .pw-logo img {
+        height: 35px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .pw-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .pw-profile-btn,
+    .pw-logout {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY
+================================ */
+.pw-header a:focus {
+    outline: 2px solid #8a1538;
+    outline-offset: 3px;
+}
+
+/* Smooth transitions */
+@media (prefers-reduced-motion: no-preference) {
+    .pw-header,
+    .pw-logo,
+    .pw-link,
+    .pw-btn,
+    .pw-mobile-toggle span {
+        transition: all 0.3s ease;
+    }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

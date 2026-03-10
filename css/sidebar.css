@@ -1,0 +1,515 @@
+/* ================================
+   POP!Work Professional Sidebar
+   Modern, Clean & Responsive
+================================ */
+
+/* Reset */
+.pw-sidebar,
+.pw-sidebar * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================
+   SIDEBAR CONTAINER
+================================ */
+.pw-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+.pw-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pw-sidebar::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+.pw-sidebar::-webkit-scrollbar-thumb {
+    background: #8a1538;
+    border-radius: 3px;
+}
+
+.pw-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #6d1029;
+}
+
+/* ================================
+   SIDEBAR HEADER
+================================ */
+.pw-sidebar-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #8a1538 0%, #a61e47 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.pw-sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pw-sidebar-logo i {
+    font-size: 28px;
+}
+
+.pw-sidebar-close {
+    display: none; /* Hidden on desktop */
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 18px;
+}
+
+.pw-sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ================================
+   USER INFO CARD
+================================ */
+.pw-sidebar-user {
+    padding: 20px;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pw-user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8a1538, #c91f4d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    flex-shrink: 0;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(138, 21, 56, 0.2);
+}
+
+.pw-user-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pw-user-info {
+    flex: 1;
+    min-width: 0; /* Allow text truncation */
+}
+
+.pw-user-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.pw-user-role {
+    font-size: 12px;
+    color: #8a1538;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ================================
+   NAVIGATION MENU
+================================ */
+.pw-sidebar-nav {
+    flex: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+}
+
+.pw-sidebar-menu {
+    list-style: none;
+}
+
+.pw-sidebar-item {
+    margin-bottom: 4px;
+}
+
+.pw-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+    border-left: 3px solid transparent;
+}
+
+.pw-sidebar-link:hover {
+    background: linear-gradient(90deg, rgba(138, 21, 56, 0.05) 0%, transparent 100%);
+    color: #8a1538;
+    border-left-color: #8a1538;
+}
+
+.pw-sidebar-link i {
+    font-size: 18px;
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.pw-sidebar-link span {
+    flex: 1;
+}
+
+/* Active State */
+.pw-sidebar-item.active .pw-sidebar-link {
+    background: linear-gradient(90deg, rgba(138, 21, 56, 0.1) 0%, rgba(138, 21, 56, 0.02) 100%);
+    color: #8a1538;
+    font-weight: 600;
+    border-left-color: #8a1538;
+}
+
+.pw-sidebar-item.active .pw-sidebar-link i {
+    color: #8a1538;
+}
+
+/* Badge (for unread counts) */
+.pw-sidebar-badge {
+    background: #e74c3c;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ================================
+   SIDEBAR FOOTER
+================================ */
+.pw-sidebar-footer {
+    padding: 5px;
+    border-top: 1px solid #e5e7eb;
+    background: #f8f9fa;
+}
+
+/* Help Card */
+.pw-help-card {
+    background: linear-gradient(135deg, #8a1538 0%, #a61e47 100%);
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.pw-help-card i {
+    font-size: 32px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.pw-help-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.pw-help-card p {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.pw-help-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: white;
+    color: #8a1538;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.pw-help-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Logout Button */
+.pw-logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.pw-logout-btn:hover {
+    background: #8a1538;
+    color: white;
+    border-color: #8a1538;
+}
+
+.pw-logout-btn i {
+    font-size: 16px;
+}
+
+/* ================================
+   MOBILE TOGGLE BUTTON
+================================ */
+.pw-sidebar-toggle {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #8a1538 0%, #a61e47 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(138, 21, 56, 0.3);
+    z-index: 999;
+    transition: all 0.3s ease;
+    display: none; /* Hidden on desktop */
+}
+
+.pw-sidebar-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(138, 21, 56, 0.4);
+}
+
+.pw-sidebar-toggle:active {
+    transform: scale(0.95);
+}
+
+/* ================================
+   OVERLAY (Mobile)
+================================ */
+.pw-sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.pw-sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ================================
+   DESKTOP LAYOUT WITH SIDEBAR
+================================ */
+@media (min-width: 993px) {
+    /* Add left padding to body when sidebar is present */
+    body.has-sidebar {
+        padding-left: 280px;
+    }
+
+    /* Adjust header when sidebar is present */
+    body.has-sidebar .pw-header {
+        left: 280px;
+        width: calc(100% - 280px);
+    }
+}
+
+/* ================================
+   TABLET & MOBILE (< 992px)
+================================ */
+@media (max-width: 992px) {
+    
+    /* Hide sidebar by default on mobile */
+    .pw-sidebar {
+        transform: translateX(-100%);
+    }
+
+    /* Show sidebar when active */
+    .pw-sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* Show toggle button */
+    .pw-sidebar-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Show close button in sidebar */
+    .pw-sidebar-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Increase z-index to be above header */
+    .pw-sidebar {
+        z-index: 1001;
+    }
+
+    .pw-sidebar-overlay {
+        z-index: 1000;
+    }
+}
+
+/* ================================
+   SMALL MOBILE (< 480px)
+================================ */
+@media (max-width: 480px) {
+    .pw-sidebar {
+        width: 260px;
+    }
+
+    .pw-sidebar-toggle {
+        width: 50px;
+        height: 50px;
+        left: 15px;
+        bottom: 15px;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY
+================================ */
+.pw-sidebar-link:focus,
+.pw-help-btn:focus,
+.pw-logout-btn:focus,
+.pw-sidebar-toggle:focus,
+.pw-sidebar-close:focus {
+    outline: 2px solid #8a1538;
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .pw-sidebar,
+    .pw-sidebar-link,
+    .pw-sidebar-toggle,
+    .pw-sidebar-overlay,
+    .pw-sidebar-badge {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ================================
+   PRINT STYLES
+================================ */
+@media print {
+    .pw-sidebar,
+    .pw-sidebar-toggle,
+    .pw-sidebar-overlay {
+        display: none !important;
+    }
+
+    body.has-sidebar {
+        padding-left: 0 !important;
+    }
+}
+
+/* ================================
+   DARK MODE (Optional)
+================================ */
+@media (prefers-color-scheme: dark) {
+    .pw-sidebar {
+        background: #1a1a1a;
+        border-right-color: #333;
+    }
+
+    .pw-sidebar-user {
+        background: linear-gradient(to bottom, #252525 0%, #1a1a1a 100%);
+        border-bottom-color: #333;
+    }
+
+    .pw-user-name {
+        color: #fff;
+    }
+
+    .pw-sidebar-link {
+        color: #b0b0b0;
+    }
+
+    .pw-sidebar-link:hover {
+        background: linear-gradient(90deg, rgba(138, 21, 56, 0.2) 0%, transparent 100%);
+        color: #fff;
+    }
+
+    .pw-sidebar-item.active .pw-sidebar-link {
+        background: linear-gradient(90deg, rgba(138, 21, 56, 0.3) 0%, rgba(138, 21, 56, 0.05) 100%);
+        color: #fff;
+    }
+
+    .pw-sidebar-footer {
+        background: #1a1a1a;
+        border-top-color: #333;
+    }
+
+    .pw-logout-btn {
+        background: #252525;
+        border-color: #333;
+        color: #b0b0b0;
+    }
+}

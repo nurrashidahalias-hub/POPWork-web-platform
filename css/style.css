@@ -1,0 +1,148 @@
+/* Header base */
+.pw-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  padding: 16px 0;
+}
+
+/* Shrink header on scroll */
+.pw-header.shrink {
+  padding: 8px 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pw-nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* Logo */
+.pw-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #8a1538;
+  text-decoration: none;
+  transition: font-size 0.3s ease;
+}
+
+.pw-header.shrink .pw-logo {
+  font-size: 22px;
+}
+
+.pw-logo .logo-icon {
+  font-size: 28px;
+  line-height: 1;
+  transition: font-size 0.3s ease;
+}
+
+.pw-header.shrink .pw-logo .logo-icon {
+  font-size: 24px;
+}
+
+/* Navigation */
+.pw-nav {
+  display: flex;
+  gap: 25px;
+  margin-left: auto;  
+}
+
+.pw-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 4px 0;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.pw-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #8a1538, #c91f4d);
+  transition: width 0.3s ease;
+}
+
+.pw-link:hover::after {
+  width: 100%;
+}
+
+.pw-link:hover {
+  color: #8a1538;
+}
+
+/* Auth Buttons */
+.pw-auth {
+  display: flex;
+  gap: 12px;
+  margin-left: 16px
+}
+
+.pw-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.pw-login {
+  border: 2px solid #8a1538;
+  color: #8a1538;
+  background: transparent;
+}
+
+.pw-login:hover {
+  background: #8a1538;
+  color: #fff;
+}
+
+.pw-register {
+  background: linear-gradient(135deg, #8a1538, #c91f4d);
+  color: #fff;
+}
+
+.pw-register:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .pw-nav-container {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .pw-nav {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .pw-auth {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
